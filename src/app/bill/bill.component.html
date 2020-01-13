@@ -1,0 +1,39 @@
+<div>
+    <div class="card" style="border-top: 2px solid blue;">
+        <div class="card-header">
+          <div><h5><strong>BILL DETAILS : </strong></h5></div>
+          <h6><strong>Bill no : {{billNo}} <h6 style="float: right;"><strong>Date : {{date}} {{time}}</strong></h6></strong></h6>
+        </div>
+        <div class="container" style="padding:25px">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th><strong>Date</strong></th>
+                        <th><strong>HeaderName</strong></th>
+                        <th><strong>ServiceName</strong></th>
+                        <th><strong>Quantity</strong></th>
+                        <th><strong>TotalServiceRate</strong></th>
+                        <th><strong>ConcessionAmt</strong></th>
+                        <th><strong>Edit</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of tableData;index as i" class="hover-highlight">
+                        <td>{{row.date}}</td>
+                        <td>{{row.headerName}}</td>
+                        <td>{{row.serviceName}}</td>
+                        <td>{{row.qty}}</td>
+                        <td>{{row.totalServiceRate}}</td>
+                        <td>{{row.concessionAmt}}</td>
+                        <td>
+                            <button *ngIf="enableEdit && enableEditIndex == i" (click)="enableEdit=false" class="btn page-secondary-action-btn" ng-click="cancel()">Cancel</button>
+                            <button *ngIf="enableEdit && enableEditIndex == i" id="saveBtn" class="btn page-primary-action-btn" (click)="saveSegment()" type="submit">Save</button>
+                            <a href="#" class="table-row-action edit-action" *ngIf="!enableEdit" (click)="enableEditMethod($event, i)">Edit</a>
+                        </td>               
+                    </tr>
+                </tbody>
+            </table>
+            <h6><strong>Total : {{total}}<h6 style="float: right;"><strong>Payable : {{payable}}</strong></h6></strong></h6>
+        </div>    
+    </div>
+</div>
