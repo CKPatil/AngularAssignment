@@ -12,8 +12,8 @@ export class BillComponent implements OnInit {
   enableEditIndex = null;
   date ="";
   time ="";
-  total =0;
-  payable = 0;
+  total = 1234;
+  payable = 1234;
   tableData = [
     {
       "date":'12-12-2019',
@@ -45,4 +45,14 @@ export class BillComponent implements OnInit {
     this.enableEditIndex = i;
     console.log(i, e);
   }
+
+  cancel() {
+    console.log('cancel');
+    this.enableEditIndex = null;
+  }
+
+  saveSegment() {
+    this.enableEditIndex = null;
+  }
+  ngOnInit(){}
 }

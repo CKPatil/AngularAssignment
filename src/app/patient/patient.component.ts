@@ -7,4 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientComponent implements OnInit {
   title = "PATIENT'S DETAILS : "
+
+  ngOnInit(){}
 }

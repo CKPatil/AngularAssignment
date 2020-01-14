@@ -19,16 +19,16 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let row of tableData;index as i" class="hover-highlight">
-                        <td>{{row.date}}</td>
-                        <td>{{row.headerName}}</td>
-                        <td>{{row.serviceName}}</td>
-                        <td>{{row.qty}}</td>
-                        <td>{{row.totalServiceRate}}</td>
-                        <td>{{row.concessionAmt}}</td>
+                        <td><span *ngIf="enableEditIndex != i">{{row.date}}</span><input type="text" [(ngModel)]="row.date" *ngIf="enableEdit && enableEditIndex == i"/></td>
+                        <td><span *ngIf="enableEditIndex != i">{{row.headerName}}</span><input type="text" [(ngModel)]="row.headerName" *ngIf="enableEdit && enableEditIndex == i"/></td>
+                        <td><span *ngIf="enableEditIndex != i">{{row.serviceName}}</span><input type="text" [(ngModel)]="row.serviceName" *ngIf="enableEdit && enableEditIndex == i"/></td>
+                        <td><span *ngIf="enableEditIndex != i">{{row.qty}}</span><input type="text" [(ngModel)]="row.qty" *ngIf="enableEdit && enableEditIndex == i"/></td>
+                        <td><span *ngIf="enableEditIndex != i">{{row.totalServiceRate}}</span><input type="text" [(ngModel)]="row.totalServiceRate" *ngIf="enableEdit && enableEditIndex == i"/></td>
+                        <td><span *ngIf="enableEditIndex != i">{{row.concessionAmt}}</span><input type="text" [(ngModel)]="row.concessionAmt" *ngIf="enableEdit && enableEditIndex == i"/></td>
                         <td>
-                            <button *ngIf="enableEdit && enableEditIndex == i" (click)="enableEdit=false" class="btn page-secondary-action-btn" ng-click="cancel()">Cancel</button>
-                            <button *ngIf="enableEdit && enableEditIndex == i" id="saveBtn" class="btn page-primary-action-btn" (click)="saveSegment()" type="submit">Save</button>
-                            <a href="#" class="table-row-action edit-action" *ngIf="!enableEdit" (click)="enableEditMethod($event, i)">Edit</a>
+                            <button *ngIf="enableEdit && enableEditIndex == i" (click)="enableEdit=false; cancel()" class="btn btn-outline-primary page-secondary-action-btn" >CANCEL</button>
+                            <button *ngIf="enableEdit && enableEditIndex == i" id="saveBtn" class="btn btn-outline-primary page-primary-action-btn" (click)="saveSegment()" type="submit">SAVE</button>
+                            <a href="#" class="table-row-action edit-action" *ngIf="i != enableEditIndex || enableEditIndex == null" (click)="enableEditMethod($event, i)">EDIT</a>
                         </td>               
                     </tr>
                 </tbody>
