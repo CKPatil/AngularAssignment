@@ -14,6 +14,7 @@ export class BillComponent implements OnInit {
   time ="";
   total = 1234;
   payable = 1234;
+  displayedColumns: string[] = ['date', 'headerName', 'serviceName', 'qty','totalServiceRate','concessionAmt','edit'];
   tableData = [
     {
       "date":'12-12-2019',

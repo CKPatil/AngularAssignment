@@ -1,19 +1,11 @@
-table td {
-    position: relative;
-  }
+table{
+  width: 100%;
+}
+.mat-cell{
+  padding: 10px;
+}
+.mat-header-cell{
+  padding: 10px;
+}
+
   
-table td input {
-    position: absolute;
-    display: block;
-    top:0;
-    left:0;
-    margin: 0;
-    height: 100%;
-    width: 100%;
-    border: none;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-  button{
-    margin-bottom: 10px;
-  }
