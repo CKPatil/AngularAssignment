@@ -9,7 +9,7 @@ export class BillComponent implements OnInit {
   billNo = 0;
   name = 'Angular';
   enableEdit = false;
-  enableEditIndex = null;
+  enableEditIndex;
   date ="";
   time ="";
   total = 1234;
