@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material';
+import { EditComponentComponent } from '../edit-component/edit-component.component';
 
 @Component({
   selector: 'app-bill',
@@ -6,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bill.component.css']
 })
 export class BillComponent implements OnInit {
+
+  constructor(public dialog:MatDialog){}
+
   billNo = 0;
   name = 'Angular';
   enableEdit = false;
@@ -42,19 +47,9 @@ export class BillComponent implements OnInit {
       "concessionAmt":'-',
     },
   ];
-  enableEditMethod(e, i) {
-    this.enableEdit = true;
-    this.enableEditIndex = i;
-    console.log(i, e);
+  openDialog(){
+    let dialogRef=this.dialog.open(EditComponentComponent);
   }
 
-  cancel() {
-    console.log('cancel');
-    this.enableEditIndex = null;
-  }
-
-  saveSegment() {
-    this.enableEditIndex = null;
-  }
   ngOnInit(){}
 }

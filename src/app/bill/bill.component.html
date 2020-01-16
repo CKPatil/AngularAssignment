@@ -56,10 +56,8 @@
                   
                   <ng-container matColumnDef="edit">
                     <th mat-header-cell *matHeaderCellDef> Edit </th>
-                    <td mat-cell *matCellDef="let element"> 
-                      <button *ngIf="enableEdit && enableEditIndex == i" (click)="enableEdit=false; cancel()" class="btn page-secondary-action-btn" >Cancel</button>
-                      <button *ngIf="enableEdit && enableEditIndex == i" id="saveBtn" class="btn page-primary-action-btn" (click)="saveSegment()" type="submit">Save</button>
-                      <a href="#" class="table-row-action edit-action" *ngIf="i != enableEditIndex || enableEditIndex == null" (click)="enableEditMethod($event, i)">edit</a>
+                    <td mat-cell *matCellDef> 
+                      <button class="btn btn-primary" (click)="openDialog()">EDIT</button>
                     </td>
                   </ng-container>
 
