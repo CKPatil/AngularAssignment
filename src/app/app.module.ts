@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { PatientComponent } from './patient/patient.component';
 import { BillComponent } from './bill/bill.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { EditComponentComponent } from './edit-component/edit-component.component';
 
 
