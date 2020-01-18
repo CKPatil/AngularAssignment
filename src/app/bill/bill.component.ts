@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material';
+import { EditComponentComponent } from '../edit-component/edit-component.component';
 
 @Component({
   selector: 'app-bill',
@@ -6,14 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bill.component.css']
 })
 export class BillComponent implements OnInit {
+
+  constructor(public dialog:MatDialog){}
+
   billNo = 0;
   name = 'Angular';
   enableEdit = false;
-  enableEditIndex = null;
+  enableEditIndex;
   date ="";
   time ="";
   total = 1234;
   payable = 1234;
+  tableHeader=["Date","HeaderName","ServiceName","Qty","TotalServiceRate","ConcessionAmount","Edit"]
+  displayedColumns: string[] = ['date', 'headerName', 'serviceName', 'qty','totalServiceRate','concessionAmt','edit'];
   tableData = [
     {
       "date":'12-12-2019',
@@ -40,19 +47,9 @@ export class BillComponent implements OnInit {
       "concessionAmt":'-',
     },
   ];
-  enableEditMethod(e, i) {
-    this.enableEdit = true;
-    this.enableEditIndex = i;
-    console.log(i, e);
+  openDialog(){
+    let dialogRef=this.dialog.open(EditComponentComponent);
   }
 
-  cancel() {
-    console.log('cancel');
-    this.enableEditIndex = null;
-  }
-
-  saveSegment() {
-    this.enableEditIndex = null;
-  }
   ngOnInit(){}
 }

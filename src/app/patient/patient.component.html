@@ -1,35 +1,29 @@
 
+<div class="container">
+    <div style="padding-top: 60px;">	
+      <form>
+          <div style="padding-bottom: 10px;">
+            <label><strong>IP Number : </strong></label>
+            <input type="text" style="margin:10px">
+            <input class="btn btn-primary" type="submit" value="Fetch Bill">
+          </div>
+      </form>
+    </div>
+
 <div style="margin-bottom: 50px;">
 
-    <div class="card" style="border-top: 2px solid blue;">
+  <div class="card" style="border-top: 2px solid blue;">
       <div class="card-header">
         <h5><strong>{{title}}</strong></h5>
       </div>
-        <div class="card-body">
-            <div class="row" style="padding: 10px;">
-                <div class="col-sm">
-                    <p>Name :</p>
-                    <td><input type="text" class="light-grey"></td>
-                    <p>DOD :</p>
-                    <input type="text">
-                    <br>
-                </div>	
-                <div class="col-sm">
-                    <p>Dept :</p>
-                    <input type="text">
-                    <p>Ward :</p>
-                    <input type="text">
-                    <br>
-                </div>
-                <div class="col-sm">
-                    <p>DOA :</p>
-                    <input type="text">
-                    <p>Phone # :</p>
-                    <input type="text">
-                    <br>
-                </div>				
-            </div>
-
-        </div>
-    </div>
+      <div class="card-body">
+        <mat-grid-list cols="3" rowHeight="3:1" gutterSize="10px">
+          <mat-grid-tile *ngFor="let element of details">
+            <p>{{element}} : </p>
+            <br>
+            <input matInput type="text" class="light-grey">
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
   </div>
+</div>
